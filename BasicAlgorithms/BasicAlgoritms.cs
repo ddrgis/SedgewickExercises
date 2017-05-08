@@ -56,5 +56,23 @@ namespace BasicAlgorithms
             }
             return resultArray;
         }
+
+        public static int BinarySearchRecursion(int[] array, int lowIndex, int highIndex, int soughtValue, int recursionDepth = 0)
+        {
+            if (array == null)
+                throw new ArgumentException();
+
+            Console.WriteLine($"{new string(' ', recursionDepth)}low = {lowIndex}, high = {highIndex}");
+
+            if (lowIndex > highIndex)
+                return -1;
+
+            int midIndex = lowIndex + (highIndex - lowIndex) / 2;
+            if (array[midIndex] == soughtValue) return midIndex;
+            if (array[midIndex] < soughtValue) return BinarySearchRecursion(array, midIndex + 1, highIndex, soughtValue, ++recursionDepth);
+            if (array[midIndex] > soughtValue) return BinarySearchRecursion(array, lowIndex, midIndex - 1, soughtValue, ++recursionDepth);
+
+            return -1;
+        }
     }
 }

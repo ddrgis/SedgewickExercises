@@ -50,5 +50,19 @@ namespace NUnitTests
 
             Assert.AreEqual(expectedIndex, resultIndex);
         }
+
+        [TestCase(new[] { 11 }, 0, 0, 666, -1)]
+        [TestCase(new[] { 1 }, 0, 0, 1, 0)]
+        [TestCase(new[] { 1, 2, 3 }, 0, 2, 2, 1)]
+        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 0, 10, 2, 1)]
+        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }, 0, 11, 2, 1)]
+        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 0, 10, 11, 10)]
+        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }, 0, 11, 11, 10)]
+        public void BinarySearchRecursion_RigthValuesTest(int[] array, int lowIndex, int highIndex, int soughtValue, int expectedIndex)
+        {
+            int resultIndex = BasicAlgoritms.BinarySearchRecursion(array, lowIndex, highIndex, soughtValue);
+
+            Assert.AreEqual(expectedIndex, resultIndex);
+        }
     }
 }
