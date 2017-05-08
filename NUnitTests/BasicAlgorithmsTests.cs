@@ -25,24 +25,16 @@ namespace NUnitTests
             Assert.Throws<ArgumentException>(() => BasicAlgoritms.GCD(n1, n2));
         }
 
+        [TestCase(new[] { 11 }, 1, -1)]
         [TestCase(new[] { 1 }, 1, 0)]
         [TestCase(new[] { 1, 2, 3 }, 2, 1)]
         [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 2, 1)]
         [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }, 2, 1)]
-        public void ComplicatedBinarySearch_RigthValuesTest(int[] array, int soughtValue, int expectedIndex)
-        {
-            int resultIndex = BasicAlgoritms.ComplicatedBinarySearch(array, soughtValue);
-
-            Assert.AreEqual(expectedIndex, resultIndex);
-        }
-
-        [TestCase(new[] { 1 }, 1, 0)]
-        [TestCase(new[] { 1, 2, 3 }, 2, 1)]
-        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 2, 1)]
-        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }, 2, 1)]
+        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 11, 10)]
+        [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }, 11, 10)]
         public void BinarySearch_RigthValuesTest(int[] array, int soughtValue, int expectedIndex)
         {
-            int resultIndex = BasicAlgoritms.ComplicatedBinarySearch(array, soughtValue);
+            int resultIndex = BasicAlgoritms.BinarySearch(array, soughtValue);
 
             Assert.AreEqual(expectedIndex, resultIndex);
         }
