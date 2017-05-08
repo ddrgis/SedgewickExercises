@@ -4,7 +4,7 @@ namespace BasicAlgorithms
 {
     public static class BasicAlgoritms
     {
-        public static int GCD(int n1, int n2)
+        public static int GCDRecursion(int n1, int n2)
         {
             if (n1 < 0 || n2 < 0)
                 throw new ArgumentException();
@@ -12,7 +12,21 @@ namespace BasicAlgorithms
                 return n1;
 
             int reminder = n1 % n2;
-            return GCD(n2, reminder);
+            return GCDRecursion(n2, reminder);
+        }
+
+        public static int GCD(int n1, int n2)
+        {
+            if (n1 < 0 || n2 < 0)
+                throw new ArgumentException();
+
+            while (n2 != 0)
+            {
+                int reminder = n1 % n2;
+                n1 = n2;
+                n2 = reminder;
+            }
+            return n1;
         }
 
         public static int BinarySearch(int[] array, int soughtValue)

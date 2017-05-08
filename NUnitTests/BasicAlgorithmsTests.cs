@@ -18,11 +18,23 @@ namespace NUnitTests
             Assert.AreEqual(expected, result);
         }
 
+        [TestCase(1, 1, 1)]
+        [TestCase(3, 2, 1)]
+        [TestCase(16, 10, 2)]
+        [TestCase(10, 16, 2)]
+        public void GCDRecursion_RightValuesTest(int n1, int n2, int expected)
+        {
+            int result = BasicAlgoritms.GCDRecursion(n1, n2);
+
+            Assert.AreEqual(expected, result);
+        }
+
+
         [TestCase(1, -3)]
         [TestCase(-2, 1)]
         public void GCD_NegativeNumsInput_ExceptionThrow(int n1, int n2)
         {
-            Assert.Throws<ArgumentException>(() => BasicAlgoritms.GCD(n1, n2));
+            Assert.Throws<ArgumentException>(() => BasicAlgoritms.GCDRecursion(n1, n2));
         }
 
         [TestCase(new[] { 11 }, 1, -1)]
